@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { ChartsModule, WavesModule } from 'angular-bootstrap-md'
 
 @NgModule({
   declarations: [HomeComponent],
@@ -12,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ChartsModule,
+    WavesModule,
   ],
 })
 export class HomeModule { }

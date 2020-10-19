@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { FooterComponent } from './components/footer/footer.component';
+import { AppComponent } from './app.component'
+import { HeaderComponent } from './components/header/header.component'
+import { HttpClientModule } from '@angular/common/http'
+import { AppRoutingModule } from './app-routing.module'
+import { FooterComponent } from './components/footer/footer.component'
+import { MDBBootstrapModule } from 'angular-bootstrap-md'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    MDBBootstrapModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
   ],
