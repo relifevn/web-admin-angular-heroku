@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../core/services/user.service';
-import { MenuListService, AuthGoogleService } from '../../core/services';
+import { MenuListService } from '../../core/services';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,6 @@ export class HeaderComponent {
   constructor(
     public userService: UserService,
     private menuListService: MenuListService,
-    public authGoogleService: AuthGoogleService,
   ) { }
 
   openMenuList() {
@@ -23,7 +22,6 @@ export class HeaderComponent {
 
   signInWithGoogle() {
     console.log('signInWithGoogle');
-    this.authGoogleService.GoogleAuth();
   }
 
 }
