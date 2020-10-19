@@ -11,8 +11,8 @@ import { SocketService } from './core/services'
 
 
 const config: SocketIoConfig = {
-  // url: 'https://nhom-khkt-hiep-phuoc.herokuapp.com',
-  url: 'localhost:1235',
+  url: 'https://nhom-khkt-hiep-phuoc.herokuapp.com',
+  // url: 'localhost:1235',
   options: {},
 }
 
