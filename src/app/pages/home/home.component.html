@@ -1,19 +1,41 @@
 <div class="home">
   <div class="title-container">
     <p class="title">
-      test
+      Flame Detector System
     </p>
   </div>
-  <div style="display: block">
-    <canvas mdbChart
-        [chartType]="chartType"
-        [datasets]="chartDatasets"
-        [labels]="chartLabels"
-        [colors]="chartColors"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)">
-    </canvas>
+  <div class="row-container">
+    <div class="temperature-sensor-container">
+      <div class="canvas-container">
+        <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
+          [colors]="chartColors" [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+    <div class="flame-sensor-container">
+      <div class="flame-icon-container">
+        <img src="/assets/icons/fire.png" alt="" class="flame-icon">
+      </div>
+      <div class="flame-text-container">
+        <p class="flame-text">
+          {{flameStatus}}
+        </p>
+      </div>
+    </div>
   </div>
+  <div class="row-container">
+    <div class="camera-container">
+      <app-lottie>
+        
+      </app-lottie>
+    </div>
+
+    <div class="camera-container">
+      <app-lottie>
+        
+      </app-lottie>
+    </div>
+  </div>
+
 </div>

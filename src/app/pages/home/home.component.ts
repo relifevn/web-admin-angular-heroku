@@ -1,4 +1,7 @@
 import { Component } from '@angular/core'
+import { FLAME_STATUS } from 'src/app/core/constants'
+import { SocketService } from 'src/app/core/services'
+import { AnimationConfigWithPath, AnimationItem, SVGRendererConfig } from 'lottie-web'
 
 @Component({
   selector: 'app-home',
@@ -7,16 +10,22 @@ import { Component } from '@angular/core'
 })
 export class HomeComponent {
 
-  constructor() { }
+  flameStatus: FLAME_STATUS = FLAME_STATUS.OFF
+  
+  constructor(private socketService: SocketService) {
 
-  public chartType = 'line';
+  }
+
+  public chartType = 'line'
 
   public chartDatasets: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'My First dataset' },
-    // { data: [28, 48, 40, 19, 86, 27, 90], label: 'My Second dataset' }
-  ];
+    {
+      data: [65, 59, 80, 81, 56, 55, 40],
+      label: 'Temperature',
+    },
+  ]
 
-  public chartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public chartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 
   public chartColors: Array<any> = [
     {
@@ -29,11 +38,11 @@ export class HomeComponent {
     //   borderColor: 'rgba(0, 10, 130, .7)',
     //   borderWidth: 2,
     // }
-  ];
+  ]
 
   public chartOptions: any = {
     responsive: true
-  };
+  }
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
 

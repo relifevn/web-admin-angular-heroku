@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
-import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core'
+import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router'
+import { AuthenticationService } from '../services/authentication.service'
+import { Observable, of } from 'rxjs'
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationGuard implements CanActivate {
@@ -15,7 +15,7 @@ export class AuthenticationGuard implements CanActivate {
     /**
      * if(authentication.isLoggedIn)
      */
-    return of(true);
+    return of(true)
   }
 
 }

@@ -29,6 +29,9 @@
     "angular-bootstrap-md": "^10.0.0",
     "chart.js": "^2.9.4",
     "express": "^4.17.1",
+    "lottie-web": "^5.7.3",
+    "ngx-lottie": "^6.4.0",
+    "ngx-socket-io": "^3.2.0",
     "path": "^0.12.7",
     "rxjs": "~6.6.3",
     "zone.js": "~0.10.2"

@@ -15,7 +15,7 @@ export class UserService {
   } as UserModel;
 
   constructor(private http: HttpClient, private config: Config) {
-
+    console.log('UserService')
   }
 
 }
