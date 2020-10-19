@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="info-container">
+    
+    <div class="menu-logo">
+      <div class="menu" (click)="openMenuList()">
+        <img src="assets/icons/menu-button-of-three-horizontal-lines.svg" alt="">
+      </div>
+      <div class="logo">
+        <img src="assets/icons/fireworks.svg" alt="">
+      </div>
+    </div>
+
+    <div class="search-box">
+      <div class="search-container">
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="search-icon">
+        <img src="assets/icons/magnifier-white.svg" alt="">
+      </div>
+    </div>
+
+    <div class="user-info">
+      <ng-container *ngIf="authGoogleService.userData as user">
+        <!-- <img src="assets/icons/user.svg" alt=""> -->
+        <img [src]="user.photoURL" alt="">
+        <div class="username">{{ user.displayName.length > 10 ? user.displayName.slice(0,8) + '...' : user.displayName }}</div>
+      </ng-container>
+      <ng-container *ngIf="!authGoogleService.userData">
+        <img src="assets/icons/google.svg" alt="" (click)="signInWithGoogle()">
+        <img src="assets/icons/facebook.svg" alt="">
+      </ng-container>
+    </div>
+
+    <div class="cart">
+      <img src="assets/icons/hotel-supplier.svg" alt="">
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.footer {
+  margin-top: 2em;
+  background-color: #131a22;
+  padding: 2em;
+  height: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .author {
+      font-family: "PT Sans", sans-serif;
+      font-size: 2em;
+      color: white;
+    }
+  }
+}
