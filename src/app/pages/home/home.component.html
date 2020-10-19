@@ -1,34 +1,3 @@
 <div class="home">
-  <div class="posters">
-    <img src="assets/server/posters/poster-2.jpg" alt="">
-  </div>
-  <div class="best-sellers">
-    <div class="title">
-      <img src="assets/icons/award.svg" alt="">
-      <div class="text">Best seller</div>
-    </div>
-    <div class="products">
-      <div class="product" *ngFor="let product of products; let i = index">
-        <div class="product-img">
-          <img [src]="product.imageUrl" alt="">
-        </div>
-        <div class="price">
-          <div class="text">
-            $ {{product.price}}
-          </div>
-        </div>
-        <div class="product-name">
-          <div class="text">
-            {{product.name.length > 50 ? product.name.slice(0,48) + '...' : product.name}}
-          </div>
-        </div>
-        <div class="rating">
-          <div class="star" *ngFor="let i of [1,2,3,4,5]">
-            <img src="assets/icons/star.svg" *ngIf="i <= product.rating"  alt="">
-            <img src="assets/icons/star-of-favorites-outline.svg" *ngIf="i > product.rating" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  Home
 </div>

@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { UserService } from '../../core/services/user.service';
-import { MenuListService } from '../../core/services';
+import { Component } from '@angular/core'
+import { UserService } from '../../core/services/user.service'
 
 @Component({
   selector: 'app-header',
@@ -9,19 +8,8 @@ import { MenuListService } from '../../core/services';
 })
 export class HeaderComponent {
 
-  username = 'GUESTUPOOOQWE';
-
   constructor(
     public userService: UserService,
-    private menuListService: MenuListService,
   ) { }
-
-  openMenuList() {
-    this.menuListService.listDisplaySubject.next({ isDisplay: true });
-  }
-
-  signInWithGoogle() {
-    console.log('signInWithGoogle');
-  }
 
 }

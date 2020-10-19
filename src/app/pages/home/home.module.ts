@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'
+// tslint:disable-next-line: semicolon
+import { HomeComponent } from './home.component'
+import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [HomeComponent],
@@ -10,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule.forChild([{ path: '', component: HomeComponent }]),
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 })
 export class HomeModule { }

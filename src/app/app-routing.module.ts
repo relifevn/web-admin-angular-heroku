@@ -8,12 +8,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
     pathMatch: 'full'
   },
-  //   {
-  //     path: 'room/:mode',
-  //     loadChildren: () => import('./pages/room/room.module').then(m => m.RoomModule),
-  //     canActivate: [AuthenticationGuard],
-  //     pathMatch: 'full'
-  //   },
+  // {
+  //   path: 'control-manager',
+  //   loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+  //   pathMatch: 'full'
+  // },
   {
     path: '**',
     redirectTo: '',

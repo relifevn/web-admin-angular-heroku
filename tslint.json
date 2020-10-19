@@ -94,11 +94,7 @@
     "no-output-native": true,
     "no-output-on-prefix": true,
     "no-output-rename": true,
-    "semicolon": {
-      "options": [
-        "always"
-      ]
-    },
+    "semicolon": false,
     "space-before-function-paren": {
       "options": {
         "anonymous": "never",
