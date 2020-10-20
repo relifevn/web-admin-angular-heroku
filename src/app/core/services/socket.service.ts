@@ -9,7 +9,10 @@ import { TemperatureResponseModel } from '../models'
 export class SocketService {
 
     private temperatureDataSubject = new Subject<TemperatureResponseModel>()
-    public temperatureData$ =this.temperatureDataSubject.asObservable()
+    public temperatureData$ = this.temperatureDataSubject.asObservable()
+
+    private cameraRawSubject = new Subject<string>()
+    public cameraRaw$ = this.cameraRawSubject.asObservable()
 
     constructor(private socket: Socket) {
         this.socket.on('connect', (data) => {
@@ -24,6 +27,10 @@ export class SocketService {
                 return e
             })
             this.temperatureDataSubject.next(data)
+        })
+        this.socket.on(SOCKET_EVENT.CAMERA_RAW_GET, (data: string) => {
+            // console.log(SOCKET_EVENT.CAMERA_RAW_GET, data)
+            this.cameraRawSubject.next(data)
         })
     }
 

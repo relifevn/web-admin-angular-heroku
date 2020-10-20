@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 import { FLAME_STATUS } from 'src/app/core/constants'
 import { SocketService } from 'src/app/core/services'
 
@@ -10,8 +11,12 @@ import { SocketService } from 'src/app/core/services'
 export class HomeComponent {
 
   flameStatus: FLAME_STATUS = FLAME_STATUS.OFF
-  
-  constructor(private socketService: SocketService) {
+  cameraRaw: SafeUrl = null
+
+  constructor(
+    private socketService: SocketService,
+    private sanitization: DomSanitizer,
+  ) {
     this.socketService.temperatureData$.subscribe(data => {
       this.chartDatasets[0].data = [
         ...this.chartDatasets[0].data,
@@ -19,11 +24,14 @@ export class HomeComponent {
       ]
       this.chartLabels = this.chartDatasets[0].data.map((e, i) => String(i))
     })
+    this.socketService.cameraRaw$.subscribe(img => {
+      this.cameraRaw = this.sanitization.bypassSecurityTrustUrl(img)
+    })
   }
 
   public chartType = 'line'
 
-  public chartDatasets: Array<{data: number[], label: string}> = [
+  public chartDatasets: Array<{ data: number[], label: string }> = [
     {
       data: [],
       label: 'Temperature',

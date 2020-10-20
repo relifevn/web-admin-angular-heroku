@@ -26,9 +26,13 @@
   </div>
   <div class="row-container">
     <div class="camera-container">
-      <app-lottie>
-        
-      </app-lottie>
+      <ng-container *ngIf="cameraRaw">
+        <img [src]="cameraRaw" alt="">
+      </ng-container>
+      <ng-container *ngIf="cameraRaw === null">
+        <app-lottie>
+        </app-lottie>
+      </ng-container>
     </div>
 
     <div class="camera-container">
