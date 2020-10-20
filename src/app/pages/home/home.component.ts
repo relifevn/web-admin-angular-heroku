@@ -1,7 +1,6 @@
 import { Component } from '@angular/core'
 import { FLAME_STATUS } from 'src/app/core/constants'
 import { SocketService } from 'src/app/core/services'
-import { AnimationConfigWithPath, AnimationItem, SVGRendererConfig } from 'lottie-web'
 
 @Component({
   selector: 'app-home',
@@ -13,19 +12,25 @@ export class HomeComponent {
   flameStatus: FLAME_STATUS = FLAME_STATUS.OFF
   
   constructor(private socketService: SocketService) {
-
+    this.socketService.temperatureData$.subscribe(data => {
+      this.chartDatasets[0].data = [
+        ...this.chartDatasets[0].data,
+        ...data.data.map(e => e.value)
+      ]
+      this.chartLabels = this.chartDatasets[0].data.map((e, i) => String(i))
+    })
   }
 
   public chartType = 'line'
 
-  public chartDatasets: Array<any> = [
+  public chartDatasets: Array<{data: number[], label: string}> = [
     {
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: [],
       label: 'Temperature',
     },
   ]
 
-  public chartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+  public chartLabels: Array<string> = []
 
   public chartColors: Array<any> = [
     {

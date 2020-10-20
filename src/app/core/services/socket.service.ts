@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core'
 import { Socket } from 'ngx-socket-io'
 import { Subject } from 'rxjs'
+import { SOCKET_EVENT } from '../constants'
 import { TemperatureResponseModel } from '../models'
 
 @Injectable()
@@ -16,6 +17,13 @@ export class SocketService {
         })
         this.socket.on('disconnect', (data) => {
             console.log(`[INFO] Socket disconnected!`)
+        })
+        this.socket.on(SOCKET_EVENT.TEMPERATURE_GET, (data: TemperatureResponseModel) => {
+            data.data = data.data.map(e => {
+                e.createdAt = new Date(e.createdAt)
+                return e
+            })
+            this.temperatureDataSubject.next(data)
         })
     }
 
