@@ -12,6 +12,7 @@ export class HomeComponent {
 
   flameStatus: FLAME_STATUS = FLAME_STATUS.OFF
   cameraRaw: SafeUrl = null
+  cameraFilter: SafeUrl = null
 
   constructor(
     private socketService: SocketService,
@@ -22,10 +23,17 @@ export class HomeComponent {
         ...this.chartDatasets[0].data,
         ...data.data.map(e => e.value)
       ]
+      const length = this.chartDatasets[0].data.length
+      if (length > 20) {
+        this.chartDatasets[0].data = this.chartDatasets[0].data.slice(length - 20, length)
+      }
       this.chartLabels = this.chartDatasets[0].data.map((e, i) => String(i))
     })
     this.socketService.cameraRaw$.subscribe(img => {
       this.cameraRaw = this.sanitization.bypassSecurityTrustUrl(img)
+    })
+    this.socketService.cameraFilter$.subscribe(img => {
+      this.cameraFilter = this.sanitization.bypassSecurityTrustUrl(img)
     })
   }
 

@@ -14,6 +14,9 @@ export class SocketService {
     private cameraRawSubject = new Subject<string>()
     public cameraRaw$ = this.cameraRawSubject.asObservable()
 
+    private cameraFilterSubject = new Subject<string>()
+    public cameraFilter$ = this.cameraFilterSubject.asObservable()
+
     constructor(private socket: Socket) {
         this.socket.on('connect', (data) => {
             console.log(`[INFO] Socket connected!`)
@@ -31,6 +34,10 @@ export class SocketService {
         this.socket.on(SOCKET_EVENT.CAMERA_RAW_GET, (data: string) => {
             // console.log(SOCKET_EVENT.CAMERA_RAW_GET, data)
             this.cameraRawSubject.next(data)
+        })
+        this.socket.on(SOCKET_EVENT.CAMERA_FILTER_GET, (data: string) => {
+            // console.log(SOCKET_EVENT.CAMERA_RAW_GET, data)
+            this.cameraFilterSubject.next(data)
         })
     }
 

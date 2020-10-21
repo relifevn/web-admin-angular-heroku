@@ -36,9 +36,13 @@
     </div>
 
     <div class="camera-container">
-      <app-lottie>
-        
-      </app-lottie>
+      <ng-container *ngIf="cameraFilter">
+        <img [src]="cameraFilter" alt="">
+      </ng-container>
+      <ng-container *ngIf="cameraFilter === null">
+        <app-lottie>
+        </app-lottie>
+      </ng-container>
     </div>
   </div>
 

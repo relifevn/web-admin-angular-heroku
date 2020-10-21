@@ -30,7 +30,6 @@ const config: SocketIoConfig = {
     HttpClientModule,
     AppRoutingModule,
     SocketIoModule.forRoot(config),
-    
   ],
   providers: [
     SocketService,
