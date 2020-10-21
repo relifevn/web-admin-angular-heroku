@@ -10,4 +10,7 @@ export enum SOCKET_EVENT {
 
     CAMERA_FILTER_POST = 'camera-filter-post',
     CAMERA_FILTER_GET = 'camera-filter-get',
+
+    DETECT_FLAME_GET = 'detect-flame-get',
+    DETECT_FLAME_POST = 'detect-flame-post',
 }

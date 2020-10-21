@@ -27,7 +27,7 @@
   <div class="row-container">
     <div class="camera-container">
       <ng-container *ngIf="cameraRaw">
-        <img [src]="cameraRaw" alt="">
+        <img class="camera" [src]="cameraRaw" alt="">
       </ng-container>
       <ng-container *ngIf="cameraRaw === null">
         <app-lottie>
@@ -37,7 +37,7 @@
 
     <div class="camera-container">
       <ng-container *ngIf="cameraFilter">
-        <img [src]="cameraFilter" alt="">
+        <img class="camera" [src]="cameraFilter" alt="">
       </ng-container>
       <ng-container *ngIf="cameraFilter === null">
         <app-lottie>

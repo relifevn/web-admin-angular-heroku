@@ -35,6 +35,13 @@ export class HomeComponent {
     this.socketService.cameraFilter$.subscribe(img => {
       this.cameraFilter = this.sanitization.bypassSecurityTrustUrl(img)
     })
+    this.socketService.detectFlame$.subscribe(data => {
+      if (data === 1) {
+        this.flameStatus = FLAME_STATUS.ON
+      } else {
+        this.flameStatus = FLAME_STATUS.OFF
+      }
+    })
   }
 
   public chartType = 'line'
