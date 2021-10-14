@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core'
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 import { FLAME_STATUS } from 'src/app/core/constants'
 import { SocketService } from 'src/app/core/services'
@@ -8,7 +9,7 @@ import { SocketService } from 'src/app/core/services'
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 	flameStatus: FLAME_STATUS = FLAME_STATUS.OFF
 	cameraRaw: SafeUrl = null
 	cameraFilter: SafeUrl = null
@@ -16,6 +17,7 @@ export class HomeComponent {
 	constructor(
 		private socketService: SocketService,
 		private sanitization: DomSanitizer,
+		private httpClient: HttpClient,
 	) {
 		this.socketService.temperatureData$.subscribe(data => {
 			this.chartDatasets[0].data = [
@@ -44,6 +46,21 @@ export class HomeComponent {
 				this.flameStatus = FLAME_STATUS.OFF
 			}
 		})
+	}
+
+	ngOnInit() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(pos => {
+				this.httpClient
+					.put('http://localhost:3000/gps', {
+						lat: pos?.coords?.latitude || 0.0,
+						lng: pos?.coords?.longitude || 0.0,
+					})
+					.subscribe(_ => {
+						console.log('GPS updated')
+					})
+			})
+		}
 	}
 
 	chartType = 'line'

@@ -1,5 +1,4 @@
-export * from './config'
 export * from './authentication.service'
-export * from './user.service'
+export * from './config'
 export * from './socket.service'
-export * from './api.service'
+export * from './user.service'
