@@ -1,49 +1,52 @@
 <div class="home">
-  <div class="title-container">
-    <p class="title">
-      Flame Detector System
-    </p>
-  </div>
-  <div class="row-container">
-    <div class="temperature-sensor-container">
-      <div class="canvas-container">
-        <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
-          [colors]="chartColors" [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)">
-        </canvas>
-      </div>
-    </div>
-    <div class="flame-sensor-container">
-      <div class="flame-icon-container">
-        <img src="/assets/icons/fire.png" alt="" class="flame-icon">
-      </div>
-      <div class="flame-text-container">
-        <p class="flame-text">
-          {{flameStatus}}
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="row-container">
-    <div class="camera-container">
-      <ng-container *ngIf="cameraRaw">
-        <img class="camera" [src]="cameraRaw" alt="">
-      </ng-container>
-      <ng-container *ngIf="cameraRaw === null">
-        <app-lottie>
-        </app-lottie>
-      </ng-container>
-    </div>
+	<div class="title-container">
+		<p class="title">Flame Detector System</p>
+	</div>
+	<div class="row-container">
+		<div class="temperature-sensor-container">
+			<div class="canvas-container">
+				<canvas
+					mdbChart
+					[chartType]="chartType"
+					[datasets]="chartDatasets"
+					[labels]="chartLabels"
+					[colors]="chartColors"
+					[options]="chartOptions"
+					[legend]="true"
+					(chartHover)="chartHovered($event)"
+					(chartClick)="chartClicked($event)"
+				>
+				</canvas>
+			</div>
+		</div>
+		<div class="flame-sensor-container">
+			<div class="flame-icon-container">
+				<img src="/assets/icons/fire.png" alt="" class="flame-icon" />
+			</div>
+			<div class="flame-text-container">
+				<p class="flame-text">
+					{{ flameStatus }}
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row-container">
+		<div class="camera-container">
+			<ng-container *ngIf="cameraRaw">
+				<img class="camera" [src]="cameraRaw" alt="" />
+			</ng-container>
+			<ng-container *ngIf="cameraRaw === null">
+				<app-lottie> </app-lottie>
+			</ng-container>
+		</div>
 
-    <div class="camera-container">
-      <ng-container *ngIf="cameraFilter">
-        <img class="camera" [src]="cameraFilter" alt="">
-      </ng-container>
-      <ng-container *ngIf="cameraFilter === null">
-        <app-lottie>
-        </app-lottie>
-      </ng-container>
-    </div>
-  </div>
-
+		<div class="camera-container">
+			<ng-container *ngIf="cameraFilter">
+				<img class="camera" [src]="cameraFilter" alt="" />
+			</ng-container>
+			<ng-container *ngIf="cameraFilter === null">
+				<app-lottie> </app-lottie>
+			</ng-container>
+		</div>
+	</div>
 </div>
