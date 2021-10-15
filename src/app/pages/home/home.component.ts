@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
 					.put('https://khkt-thcs-hiep-phuoc-server.herokuapp.com/gps', {
 						lat: pos?.coords?.latitude || 0.0,
 						lng: pos?.coords?.longitude || 0.0,
+						type: 'flame-detector',
 					})
 					.subscribe(_ => {
 						console.log('GPS updated')
