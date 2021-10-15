@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(pos => {
 				this.httpClient
-					.put('http://localhost:3000/gps', {
+					.put('https://khkt-thcs-hiep-phuoc-server.herokuapp.com/gps', {
 						lat: pos?.coords?.latitude || 0.0,
 						lng: pos?.coords?.longitude || 0.0,
 					})
